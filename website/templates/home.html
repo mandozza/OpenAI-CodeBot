@@ -2,10 +2,28 @@
 
 {% block content %}
 
-<h1>Hello Hello!!</h1>
-
+<pre>
+  <code class="line-numbers language-python">
+    if name == "Jeremy" :
+      print("Hello Jeremy")
+    else :
+      print("Hello World")
+  </code>
+</pre>
+<br/><br/>
+<form action="{% url 'home' %}" method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <textarea class="form-control" name="code" placeholder="Have AI Fix My Code"  rows="3"></textarea>
+  </div>
+  <select class="form-select" aria-label="Default select example">
+    <option selected>Select Programming Language</option>
+    {% for lang in code_list %}
+      <option value="{{ lang }}">{{ lang }}</option>
+    {% endfor %}
+  </select>
+  <br/>
+  <br/>
+  <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
 {% endblock %}
-
-
-
-
