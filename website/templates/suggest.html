@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Suggest Code</h2>
+<pre>
+	<code class="line-numbers language-{{ lang }}">
+		{{ response }}
+	</code>
+</pre>
+<br/><br/>
+<form action="{% url 'suggest' %}" method="post">
+	{% csrf_token %}
+	<div class="mb-3">
+		<textarea class="form-control" name="code" placeholder="Have AI Suggest Code" rows="3">{{ code }}</textarea>
+	</div>
+	<select class="form-select" aria-label="Select programming label" name="lang">
+		<option selected>Select Programming Language</option>
+		{% for code_lang in code_list %}
+			<option value="{{ code_lang }}" {% if code_lang == lang %} selected {% endif %}>{{ code_lang }}</option>
+		{% endfor %}
+	</select>
+	<br/>
+	<br/>
+	<button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+{% endblock %}

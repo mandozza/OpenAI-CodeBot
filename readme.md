@@ -1,6 +1,9 @@
 # Codebot App
-
 The following web application uses Python , Django and Open AI
+
+![Screenshot](screenshot.png)
+
+
 
 ## Contributing
 If you'd like to contribute to this project, feel free to fork the repository and submit a pull request. Please make sure to follow the code style and conventions used in the existing codebase.
